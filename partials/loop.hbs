@@ -1,0 +1,47 @@
+<article class="{{post_class}} u-shadow"{{#if primary_tag.accent_color}} style="--tag-color: {{primary_tag.accent_color}};"{{/if}}>
+<a class="post-link" href="{{url}}">
+    {{#if feature_image}}
+        {{#if featured}}
+            <img
+                class="post-image u-object-fit"
+                src="{{img_url feature_image}}"
+                alt="{{title}}"
+                loading="lazy"
+            >
+        {{else}}
+        <figure class="post-media">
+            <div class="u-placeholder same-height rectangle">
+                <img
+                    class="post-image u-object-fit"
+                    srcset="{{img_url feature_image size="s"}} 400w,
+                            {{img_url feature_image size="m"}} 750w,
+                            {{img_url feature_image size="l"}} 960w,
+                            {{img_url feature_image size="xl"}} 1140w,
+                            {{img_url feature_image size="xxl"}} 1920w"
+                    sizes="600px"
+                    src="{{img_url feature_image size="l"}}"
+                    alt="{{title}}"
+                    loading="lazy"
+                >
+            </div>
+        </figure>
+        {{/if}}
+    {{/if}}
+
+    <div class="post-wrapper">
+        <header class="post-header">
+            {{#primary_tag}}
+                <span class="post-tag">{{name}}</span>
+            {{/primary_tag}}
+
+            <h2 class="post-title">
+                {{title}}
+            </h2>
+        </header>
+    </div>
+
+    <footer class="post-footer">
+        <time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+    </footer>
+</a>
+</article>
